@@ -1,5 +1,7 @@
 (ns hotel.handler
-  (:use compojure.core)
+  (:use compojure.core
+	hotel.views.post
+        [hiccup.middleware :only (wrap-base-url)])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]))
 
@@ -7,7 +9,7 @@
 	define servlet app-routes
 )
 (defroutes app-routes
-  (GET "/" [] "Welcome To Rich Hickey Hotel")
+  (GET "/" [] (index))
   (route/not-found "Not Found"))
 
 (def app
