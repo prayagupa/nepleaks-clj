@@ -1,4 +1,4 @@
-# Nep Leaks by Prayag Upd
+# nepleaks by prayagupd
 
 ## Prerequisites
 
@@ -14,4 +14,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 anonymousupd
