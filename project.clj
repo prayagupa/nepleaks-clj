@@ -4,6 +4,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [compojure "1.1.1"]
 		 [hiccup "1.0.0"]
+                 [korma "0.3.0-RC4"]
                  [mysql/mysql-connector-java "5.1.16"]
                 ]
   :plugins [[lein-ring "0.7.1"]]
