@@ -11,7 +11,11 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 [Described here](http://prayag-waves.blogspot.com.au/2013/01/installing-lein-on-ubuntu-1210.html)
 
 and run : 
+
     lein deps 
+
+which will download all required depemdencies.
+
 
 ## Running webapp
 
