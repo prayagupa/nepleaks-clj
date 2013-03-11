@@ -16,6 +16,33 @@ and run :
 
 which will download all required depemdencies.
 
+But don't forget to configure ~/.m2/settings.xml if [proxy](http://maven.apache.org/guides/mini/guide-proxies.html) is being used : 
+
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!-- proxies
+         | This is a list of proxies which can be used on this machine to connect to the network.
+         | Unless otherwise specified (by system property or command-line switch), the first proxy
+         | specification in this list marked as active will be used.
+         |-->
+    <proxies>
+      <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>http</protocol>
+    <!--      <username>prayag</username>
+      <password></password>-->
+      <host>10.**.***.**5</host>
+      <port>8080</port>
+      <nonProxyHosts>google.com|github.com</nonProxyHosts>
+    </proxy>
+    </proxies>
+
+    </settings>
+
 
 ## Running webapp
 
