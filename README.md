@@ -2,13 +2,13 @@
 
 ## Prerequisites
 
-You will need [Leiningen][1] 1.7.0 or above installed.
+[Leiningen][1] 1.7.0 or above.
 
 [1]: https://github.com/technomancy/leiningen
 
 ## Installing lein 
 
-[Described here](http://prayag-waves.blogspot.com.au/2013/01/installing-lein-on-ubuntu-1210.html)
+[Installing lein 1.7.1 described here](http://prayag-waves.blogspot.com.au/2013/01/installing-lein-on-ubuntu-1210.html)
 
 and run : 
 
@@ -16,7 +16,7 @@ and run :
 
 which will download all required depemdencies.
 
-But don't forget to configure ~/.m2/settings.xml if [proxy](http://maven.apache.org/guides/mini/guide-proxies.html) is being used : 
+But don't forget to configure `~/.m2/settings.xml` if [proxy](http://maven.apache.org/guides/mini/guide-proxies.html) is being used. Have a look at lein [issue#283](https://github.com/technomancy/leiningen/issues/283). 
 
     <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,18 +28,19 @@ But don't forget to configure ~/.m2/settings.xml if [proxy](http://maven.apache.
          | Unless otherwise specified (by system property or command-line switch), the first proxy
          | specification in this list marked as active will be used.
          |-->
-    <proxies>
-      <proxy>
-      <id>optional</id>
-      <active>true</active>
-      <protocol>http</protocol>
-    <!--      <username>prayag</username>
-      <password></password>-->
-      <host>10.**.***.**5</host>
-      <port>8080</port>
-      <nonProxyHosts>google.com|github.com</nonProxyHosts>
-    </proxy>
-    </proxies>
+        <proxies>
+          <proxy>
+          <id>optional</id>
+          <active>true</active>
+          <protocol>http</protocol>
+          <!--      <username>prayag</username>
+                    <password></password>
+          -->
+          <host>10.**.***.**5</host>
+          <port>8080</port>
+          <nonProxyHosts>google.com|github.com</nonProxyHosts>
+          </proxy>
+        </proxies>
 
     </settings>
 
