@@ -1,4 +1,4 @@
-(ns hotel.views.post
+(ns nepleaks.views.post
 	(:use [hiccup core page])
 )
 

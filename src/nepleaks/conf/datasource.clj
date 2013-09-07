@@ -4,7 +4,7 @@
           (select users)
           ")
 
-(ns hotel.conf.datasource)
+(ns nepleaks.conf.datasource)
    (use [korma.db])
    (use [korma.core])
 )

@@ -1,15 +1,17 @@
-(ns hotel.handler
+(ns nepleaks.handler
   (:use compojure.core
-	hotel.views.post
+	nepleaks.views.post
         [hiccup.middleware :only (wrap-base-url)])
-  (:require [compojure.handler :as handler]
-            [compojure.route :as route]))
+  (:require [compojure.handler  :as handler]
+            [compojure.route    :as route]
+            [ring.util.response :as resp]))
 
 (comment
 	define servlet app-routes
 )
 (defroutes app-routes
-  (GET "/" [] (index))
+  (GET "/" [] (resp/redirect "/index.html"))
+  (route/resources "/")
   (route/not-found "Not Found"))
 
 (def app
