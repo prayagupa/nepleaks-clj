@@ -10,4 +10,5 @@
                 ]
   :plugins [[lein-ring "0.7.1"]]
   :ring {:handler hotel.handler/app}
+  :jvm-opts ["-Xmx512m"]
   :dev-dependencies [[ring-mock "0.1.2"]])
