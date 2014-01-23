@@ -1,5 +1,6 @@
 (ns nepleaks.views.post
-	(:use [hiccup core page])
+	(:use [hiccup core page]
+	      [clj-http.client :as client])
 )
 
 (comment
@@ -14,3 +15,4 @@
     [:body
       [:h1 "welcome to nepleaks.org"]]))
 
+(client/get "https://github.com/timeline.json" {:accept :json})
