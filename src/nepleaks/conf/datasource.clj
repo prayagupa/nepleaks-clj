@@ -1,6 +1,6 @@
 (comment "Datasource definitions for nepleaks using kORMa.
           To get the list of users from the database run the following code in REPL:
-          (use 'korma.db 'korma.core 'hotel.conf.datasource)
+          (use 'korma.db 'korma.core 'nepleaks.conf.datasource)
           (select users)
           ")
 

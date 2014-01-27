@@ -7,6 +7,12 @@
 	define views
 )
 
+(defn getJson [ ]
+       (client/get "https://github.com/timeline.json" {:accept :json})
+)       
+
+(println apply str (getJson))
+
 (defn index []
   (html5
     [:head
@@ -15,4 +21,3 @@
     [:body
       [:h1 "welcome to nepleaks.org"]]))
 
-(client/get "https://github.com/timeline.json" {:accept :json})

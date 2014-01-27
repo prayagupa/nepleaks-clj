@@ -1,16 +1,22 @@
 # nepleaks by prayagupd
 
-## Prerequisites
+## prerequisites
 
 [Leiningen][1] 1.7.0 or above.
 
 [1]: https://github.com/technomancy/leiningen
 
-## Installing lein 
+## installing lein 
 
 [Installing lein 1.7.1 described here](http://prayag-waves.blogspot.com.au/2013/01/installing-lein-on-ubuntu-1210.html)
 
-and run : 
+for lein tasks
+
+```
+$ lein help
+```
+
+## download dependencies
 
     lein deps 
 
@@ -45,7 +51,7 @@ But don't forget to configure `~/.m2/settings.xml` if [proxy](http://maven.apach
     </settings>
 
 
-## Running webapp
+## run webapp
 
 To start a web server for the application, run:
 
