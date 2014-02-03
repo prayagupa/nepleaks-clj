@@ -11,6 +11,10 @@
 		 [clj-http "0.7.8"]
                 ]
   :plugins [[lein-ring "0.7.1"]]
-  :ring {:handler nepleaks.handler/app}
+  :ring {:handler nepleaks.handler/app
+         ;; hot-reload http://stackoverflow.com/a/14472281/432903
+         ;;:auto-reload? true
+         ;;:auto-refresh? true
+         }
   :jvm-opts ["-Xmx512m"]
   :dev-dependencies [[ring-mock "0.1.2"]])

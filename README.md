@@ -55,7 +55,7 @@ But don't forget to configure `~/.m2/settings.xml` if [proxy](http://maven.apach
 
 To start a web server for the application, run:
 
-    lein ring server
+    lein ring server 8443
 
 ## License
 

@@ -1,6 +1,8 @@
 (ns nepleaks.views.post
 	(:use [hiccup core page]
-	      [clj-http.client :as client])
+	      [clj-http.client :as client]
+              [nepleaks.conf.server :only (requestJsonServer)]
+              )
 )
 
 (comment
@@ -15,5 +17,8 @@
       [:title "nepleaks.org"]
     ]
     [:body
-      [:h1 "welcome to nepleaks.org"]]))
+     [:h1 "welcome to nepleaks.org"]
+     [:p (println apply str (requestJsonServer))]
+     ;;[:p "nepleaks"]
+     ]))
 
