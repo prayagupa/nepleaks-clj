@@ -7,11 +7,7 @@
 	define views
 )
 
-(defn getJson [ ]
-       (client/get "https://github.com/timeline.json" {:accept :json})
-)       
-
-(println apply str (getJson))
+;;TODO execute nepleaks.conf.server and render json here
 
 (defn index []
   (html5
