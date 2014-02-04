@@ -1,7 +1,7 @@
 (ns nepleaks.views.post
 	(:use [hiccup core page]
 	      [clj-http.client :as client]
-              [nepleaks.conf.server :only (requestJsonServer)]
+              [nepleaks.conf.server :as server]
               )
 )
 
@@ -9,7 +9,14 @@
 	define views
 )
 
-;;TODO execute nepleaks.conf.server and render json here
+;;TODO render json here
+
+(defn getJsonResponse []
+  (println "getJsonResponse") ;;FIXME replace it with logger
+  (println apply str (server/getEsMapping))
+)
+
+(getJsonResponse)
 
 (defn index []
   (html5
@@ -17,8 +24,8 @@
       [:title "nepleaks.org"]
     ]
     [:body
-     [:h1 "welcome to nepleaks.org"]
-     [:p (println apply str (requestJsonServer))]
-     ;;[:p "nepleaks"]
+     [:h1 "A leaks pool"]
+     [:p (getJsonResponse)]
+     ;;FIXME [:p "nepleaks"]
      ]))
 
