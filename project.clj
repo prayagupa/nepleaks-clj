@@ -20,6 +20,7 @@
   :jvm-opts ["-Xmx512m"]
   :profiles { :dev {:dependencies [[ring-mock "0.1.2"]
                      [org.apache.hadoop/hadoop-core "1.1.2"]
+		     [ritz/ritz-swank "0.7.0"]
                     ]
 		   }
 	    }
