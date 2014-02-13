@@ -18,7 +18,7 @@
          ;;:auto-refresh? true
          }
   :jvm-opts ["-Xmx512m"]
-  :profiles { :dev {:dev-dependencies [[ring-mock "0.1.2"]
+  :profiles { :dev {:dependencies [[ring-mock "0.1.2"]
                      [org.apache.hadoop/hadoop-core "1.1.2"]
                     ]
 		   }
