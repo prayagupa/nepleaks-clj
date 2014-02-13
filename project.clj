@@ -1,4 +1,4 @@
-(defproject hotel "0.1.0-SNAPSHOT"
+(defproject nepleaks "0.1.0-SNAPSHOT"
   :description "nepleaks"
   :url "http://nepleaks.org/"
   :dependencies [[org.clojure/clojure "1.4.0"]
@@ -9,6 +9,7 @@
                  [mysql/mysql-connector-java "5.1.16"]
 		 [clojurewerkz/elastisch "1.4.0"]
 		 [clj-http "0.7.8"]
+		 [cascalog "2.0.0"]
                 ]
   :plugins [[lein-ring "0.7.1"]]
   :ring {:handler nepleaks.handler/app
@@ -17,4 +18,9 @@
          ;;:auto-refresh? true
          }
   :jvm-opts ["-Xmx512m"]
-  :dev-dependencies [[ring-mock "0.1.2"]])
+  :profiles { :dev {:dev-dependencies [[ring-mock "0.1.2"]
+                     [org.apache.hadoop/hadoop-core "1.1.2"]
+                    ]
+		   }
+	    }
+  )
