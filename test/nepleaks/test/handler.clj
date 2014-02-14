@@ -1,7 +1,7 @@
-(ns hotel.test.handler
+(ns nepleaks.test.handler
   (:use clojure.test
         ring.mock.request  
-        hotel.handler))
+        nepleaks.handler))
 
 (deftest test-app
   (testing "main route"

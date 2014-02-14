@@ -6,16 +6,19 @@
             [clojurewerkz.elastisch.rest.response :as esrsp]
             [clj-http.client                      :as client]
             [clojure.pprint                       :as pp]
+            [clojure.tools.logging                :as log] ;;http://www.paullegato.com/blog/logging-clojure-clj-logging-config/
   ))
 
 
 (def ES_SERVER "http://localhost:9200/")
 (def ES_INDEX "gccount")
 ;;(defmacro ES_TYPE_MEMBER [] "Member")
-(def ES_TYPE_MEMBER "Member")
+(def ES_TYPE_MEMBER "MemberSearch")
 (def ES_MAPPING_URL (str ES_SERVER ES_INDEX "/" ES_TYPE_MEMBER "/_mapping?pretty=true"))
 
+
 (def requestUrl "http://localhost:8080/gccount/dashboard")
+
 
 (defn requestJsonServer []
    (client/post requestUrl {:accept :json})
@@ -33,6 +36,8 @@
 
   ;; (esd/search ES_INDEX ES_TYPE_MEMBER :query {:term {:memberFirstName "Charlie"}})
 
+  (log/info "Preparing to query the Es Server.")
+  
   (let [res (esd/search ES_INDEX  ES_TYPE_MEMBER :query {:term {:currentStatus "Termed"}})
         numberOfHits (esrsp/total-hits res)
         hits         (esrsp/hits-from res)
@@ -43,3 +48,12 @@
     ;; (pp/pprint hits)
   ))
 
+;; division function with Exception handling ;;
+(defn divide [x y]
+  (try
+    (log/info "dividing" x "by" y)
+    (/ x y)
+    (catch Exception ex
+      (log/error ex "There was an error in calculation."))))
+
+()
