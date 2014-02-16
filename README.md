@@ -2,7 +2,9 @@
 
 ## prerequisites
 
-[Leiningen][1] 1.7.0 or above.
+[emacs cider](https://github.com/clojure-emacs/cider#via-packageel)
+
+[lein(ingen)][1] 1.7.0 or above.
 
 [1]: https://github.com/technomancy/leiningen
 
@@ -128,4 +130,4 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2013 anonymousupd
+Copyright © 2013 pseudononymous-upd

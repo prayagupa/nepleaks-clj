@@ -12,6 +12,7 @@
 		 [clojurewerkz/elastisch "1.4.0"]
 		 [clj-http "0.7.8"]
 		 [cascalog "2.0.0"]
+                 [solrclj/solrclj "0.1.2"]
                 ]
   :plugins [[lein-ring "0.7.1"]]
   :ring {:handler nepleaks.handler/app
