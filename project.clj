@@ -13,6 +13,7 @@
 		 [clj-http "0.7.8"]
 		 [cascalog "2.0.0"]
                  [solrclj/solrclj "0.1.2"]
+                 [facts/speech-synthesis "1.0.0"]
                 ]
   :plugins [[lein-ring "0.7.1"]]
   :ring {:handler nepleaks.handler/app

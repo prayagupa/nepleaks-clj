@@ -2,6 +2,7 @@
 	(:use [hiccup core page]
 	      [clj-http.client :as client]
               [nepleaks.conf.server :as server]
+              [nepleaks.conf.nlp    :as nlp]
               )
 )
 
@@ -13,7 +14,8 @@
 
 (defn getJsonResponse []
   (println "getJsonResponse") ;;FIXME replace it with logger
-  (println apply str (server/getEsMapping))
+  ;;(println apply str (server/getEsMapping))
+  (nlp/speak "I'm Prayag")
 )
 
 (getJsonResponse)
