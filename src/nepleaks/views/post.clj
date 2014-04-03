@@ -2,7 +2,7 @@
 	(:use [hiccup core page]
 	      [clj-http.client :as client]
               [nepleaks.conf.server :as server]
-              [nepleaks.conf.nlp    :as nlp]
+              [nepleaks.conf.nlp    :as nlpServer]
               )
 )
 
@@ -15,10 +15,10 @@
 (defn getJsonResponse []
   (println "getJsonResponse") ;;FIXME replace it with logger
   ;;(println apply str (server/getEsMapping))
-  (nlp/speak "I'm Prayag")
+  (nlpServer/speak "I'm Prayag")
+  (nlpServer/tag-page "http://writequit.org")
+  "prayagupd" ;;return
 )
-
-(getJsonResponse)
 
 (defn index []
   (html5
@@ -28,6 +28,5 @@
     [:body
      [:h1 "A leaks pool"]
      [:p (getJsonResponse)]
-     ;;FIXME [:p "nepleaks"]
      ]))
 

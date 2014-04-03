@@ -13,7 +13,10 @@
 		 [clj-http "0.7.8"]
 		 [cascalog "2.0.0"]
                  [solrclj/solrclj "0.1.2"]
+                 [clojure-opennlp "0.3.2"] ;; uses Opennlp 1.5.3
                  [facts/speech-synthesis "1.0.0"]
+		 [google-maps "0.5.0"]
+     [com.keminglabs/c2 "0.2.3"]
                 ]
   :plugins [[lein-ring "0.7.1"]]
   :ring {:handler nepleaks.handler/app
@@ -21,7 +24,7 @@
          ;;:auto-reload? true
          ;;:auto-refresh? true
          }
-  :jvm-opts ["-Xmx512m"]
+  :jvm-opts ["-Xmx512m" "-XX:+UseParallelGC" "-XX:+UseParallelOldGC"]
   :profiles { :dev {:dependencies [[ring-mock "0.1.2"]
                      [org.apache.hadoop/hadoop-core "1.1.2"]
 		     [ritz/ritz-swank "0.7.0"]

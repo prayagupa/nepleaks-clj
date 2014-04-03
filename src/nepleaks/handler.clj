@@ -10,7 +10,7 @@
 	define servlet app-routes
 )
 (defroutes app-routes
-  (GET "/" [] (resp/redirect "/index.html"))
+  (GET "/" [] (index))
   (route/resources "/")
   (route/not-found "Not Found"))
 
