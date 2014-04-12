@@ -17,5 +17,6 @@ if [ ! -d "$logDateDir" ]; then
 fi
 
 appender=$logDateDir/$app-$date.log
-lein ring server 8443 > $appender &
+lein deps
+lein ring server 8443 > $appender #&
 #tail -f $appender

@@ -1,8 +1,10 @@
 (defproject nepleaks "0.1.0-SNAPSHOT"
   :description "nepleaks"
   :url "http://nepleaks.org/"
-  :dependencies [[org.clojure/clojure "1.4.0"]
-                 [compojure "1.1.1"]
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [compojure "1.1.5"]
+                 [enlive  "1.1.1"]
+                 [net.cgrand/moustache "1.1.0"]
                  [org.clojure/tools.logging "0.2.6"]
                  [ring.middleware.logger "0.4.0"]
 		 [hiccup "1.0.0"]
