@@ -1,5 +1,5 @@
 ;;
-(ns nepleaks.conf.server
+(ns nepleaks.services.esService
   (:require [clojurewerkz.elastisch.rest          :as esr]
             [clojurewerkz.elastisch.rest.document :as esd]
             [clojurewerkz.elastisch.query         :as q]

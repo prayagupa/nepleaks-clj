@@ -17,6 +17,7 @@
                  [solrclj/solrclj "0.1.2"]
                  [clojure-opennlp "0.3.2"] ;; uses Opennlp 1.5.3
                  [facts/speech-synthesis "1.0.0"]
+                 ;;[overtone "0.9.1"]
 		 [google-maps "0.5.0"]
      [com.keminglabs/c2 "0.2.3"]
                 ]

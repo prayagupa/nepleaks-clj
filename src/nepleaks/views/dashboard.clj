@@ -1,9 +1,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; leaks view
+;; dashboard view
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(ns nepleaks.views.post
+(ns nepleaks.views.dashboard
 	(:use [hiccup core page]
 	      [clj-http.client :as client]
               [nepleaks.services.esService     :as esService]
@@ -15,18 +15,20 @@
 
 ;;TODO render json here
 
-(defn leaksJson []
+(defn getJsonResponse []
   (println "getJsonResponse") ;;FIXME replace it with logger
   ;;(println apply str (esService/getEsMapping))
+  ;;(nlpService/speak "I'm Prayag")
+  ;;(nlpService/tag-page "http://writequit.org")
   "prayagupd" ;;return
 )
 
-(defn leaks []
+(defn dashboard []
   (html5
     [:head
       [:title "nepleaks.org"]
     ]
     [:body
-     [:h1 "A leaks pool"]
-     [:p (leaksJson)]
+     [:h1 "A leaks pool dashboard"]
+     [:p (getJsonResponse)]
      ]))

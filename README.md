@@ -22,7 +22,7 @@ $ lein help
 
     lein deps 
 
-which will download all required depemdencies.
+which will download all required dependencies.
 
 But don't forget to configure `~/.m2/settings.xml` if [proxy](http://maven.apache.org/guides/mini/guide-proxies.html) is being used. Have a look at lein [issue#283](https://github.com/technomancy/leiningen/issues/283). 
 
@@ -66,7 +66,7 @@ user=> sentence
 
 user=> (?- (stdout) sentence)
 14/02/13 11:19:09 INFO util.HadoopUtil: using default application jar, may cause class not found exceptions on the cluster
-14/02/13 11:19:09 INFO planner.HadoopPlanner: using application jar: /home/pupadhyay/.m2/repository/cascading/cascading-hadoop/2.2.0/cascading-hadoop-2.2.0.jar
+14/02/13 11:19:09 INFO planner.HadoopPlanner: using application jar: /home/prayagupd/.m2/repository/cascading/cascading-hadoop/2.2.0/cascading-hadoop-2.2.0.jar
 14/02/13 11:19:09 INFO property.AppProps: using app.id: 66FFB8A741E1485382DD1793F1630A36
 14/02/13 11:19:10 INFO util.Version: Concurrent, Inc - Cascading 2.2.0
 14/02/13 11:19:10 INFO flow.Flow: [] starting
@@ -124,9 +124,9 @@ user=>
 
 ## run webapp
 
-To start a web server for the application, run:
+To start a web server for the application, fire:
 
-    lein ring server 8443
+    $ lein ring server 8443
 
 ## License
 

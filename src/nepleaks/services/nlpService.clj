@@ -1,8 +1,9 @@
-;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; nlpservice
 ;; @see : http://stackoverflow.com/a/12125548/432903
-;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(ns nepleaks.conf.nlp
+(ns nepleaks.services.nlpService
        (:use [speech-synthesis.say :as    say]
              [clojure.java.shell   :only [sh]]
              [opennlp.nlp]
