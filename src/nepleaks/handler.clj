@@ -1,22 +1,32 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; UrlHandler
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (ns nepleaks.handler
   (:use compojure.core
 	nepleaks.views.post
+	nepleaks.views.dashboard
   nepleaks.templates
+  [nepleaks.services.leakerService :as nepleaksService]
         [hiccup.middleware :only (wrap-base-url)])
-  (:require [compojure.handler  :as handler]
-            [compojure.route    :as route]
-            [ring.util.response :as resp])
+  (:require [compojure.handler     :as handler]
+            [compojure.route       :as route]
+            [ring.util.response    :as resp])
             )
 
 (comment
-	define servlet app-routes
-)
+	define servlet app-routes)
+
 (defroutes app-routes
-  (GET "/" [] (index))
+  (GET "/" [] (dashboard))
+
+  ;; leaks
+  (GET "/leaks/list" [] (leaks))
 
   ;; nepleaks users
-  (GET "/leaker/list"     []   (tpl-leaker-list "prayag"))
-  (GET "/leaker/edit/:id" [id] (str "<h3>Hi leaker" id "</h3>"))
+  (GET "/leaker/list"     []   (tpl-leaker-list (nepleaksService/leakers))) ;; call nepleaksService/listLeakers
+  (GET "/leaker/edit/:id" [id] (str "<h3>Hi leaker " id "</h3>"))
 
   (route/resources "/")
   (route/not-found "Not Found"))
@@ -26,5 +36,4 @@
 
 (comment
 (run-server {:port 8080}
-            "/*" (servlet app-routes))
-)
+            "/*" (servlet app-routes)))
