@@ -1,0 +1,5 @@
+runApp(){
+  lein run
+}
+
+runApp

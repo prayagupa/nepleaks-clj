@@ -6,5 +6,5 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                 [storm "0.9.0"] 
                 ]
-  :main nepleaks-engine.core
+  :main nepleaks-engine.services.stormService
  )

@@ -1,5 +1,7 @@
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;i;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; @desc: realtime processing what Hadoop did for batch processing
+;; @see : https://www.youtube.com/watch?v=bdps8tE0gYo&list=PL65681C476097F57D
 ;; @see : https://github.com/apache/incubator-storm/blob/master/examples/storm-starter/src/clj/storm/starter/clj/word_count.clj
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -8,6 +10,7 @@
   (:use [backtype.storm clojure config])
   (:gen-class))
 
+;; sentence-reader
 (defspout sentence-spout ["sentence"]
   [conf context collector]
   (let [sentences ["a little brown dog"
@@ -25,11 +28,13 @@
         ;; This is an unreliable spout, so it does nothing here
         ))))
 
+;; read from streaming api
 (defspout sentence-spout-parameterized ["word"] {:params [sentences] :prepare false}
   [collector]
   (Thread/sleep 500)
   (emit-spout! collector [(rand-nth sentences)]))
 
+;; logic(aggregations, joins) => output
 (defbolt split-sentence ["word"] [tuple collector]
   (let [words (.split (.getString tuple 0) " ")]
     (doseq [w words]
@@ -48,6 +53,7 @@
          (ack! collector tuple)
          )))))
 
+;; 
 (defn mk-topology []
 
   (topology
@@ -66,19 +72,20 @@
 (defn run-local! []
   (let [cluster (LocalCluster.)]
     (.submitTopology cluster "word-count" {TOPOLOGY-DEBUG true} (mk-topology))
-    (Thread/sleep 10000)
+    (Thread/sleep 10000)   ;; 10 secs
     (.shutdown cluster)
     ))
+
 
 (defn submit-topology! [name]
   (StormSubmitter/submitTopology
    name
    {TOPOLOGY-DEBUG true
-    TOPOLOGY-WORKERS 3}
+    TOPOLOGY-WORKERS 3} ;; 3 physical JVM processes
    (mk-topology)))
 
-;;(defn -main
-;;  ([]
-;;   (run-local!))
-;;  ([name]
-;;   (submit-topology! name)))
+(defn -main
+  ([]
+   (run-local!))
+  ([name]
+   (submit-topology! name)))
