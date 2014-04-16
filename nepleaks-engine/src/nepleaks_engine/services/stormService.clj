@@ -7,7 +7,7 @@
 
 (ns nepleaks-engine.services.stormService
   (:import [backtype.storm StormSubmitter LocalCluster])
-  (:use [backtype.storm clojure config])
+  (:use    [backtype.storm clojure config])
   (:gen-class))
 
 ;; sentence-reader

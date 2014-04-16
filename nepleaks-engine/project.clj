@@ -4,7 +4,9 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                [storm "0.9.0"] 
+                 [congomongo "0.4.3"]
+                 [storm "0.9.0"] 
+                 [clj-kafka "0.2.0-0.8"]
                 ]
   :main nepleaks-engine.services.stormService
  )
