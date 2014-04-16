@@ -5,7 +5,7 @@
 
 (ns nepleaks.handler
   (:use compojure.core
-	nepleaks.views.post
+	nepleaks.views.leak
 	nepleaks.views.dashboard
   nepleaks.templates
   [nepleaks.services.leakerService :as nepleaksService]
@@ -22,7 +22,7 @@
   (GET "/" [] (dashboard))
 
   ;; leaks
-  (GET "/leaks/list" [] (leaks))
+  (GET "/leak/list" [] (leaks))
 
   ;; nepleaks users
   (GET "/leaker/list"     []   (tpl-leaker-list (nepleaksService/leakers))) ;; call nepleaksService/listLeakers

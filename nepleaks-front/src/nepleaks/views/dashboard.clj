@@ -20,7 +20,7 @@
   ;;(println apply str (esService/getEsMapping))
   ;;(nlpService/speak "I'm Prayag")
   ;;(nlpService/tag-page "http://writequit.org")
-  "prayagupd" ;;return
+  (str "<a>prayagupd</a>") ;;return
 )
 
 (defn dashboard []
@@ -31,4 +31,7 @@
     [:body
      [:h1 "A leaks pool dashboard"]
      [:p (getJsonResponse)]
+     [:a {:href "/leak/list"} "Leaks"]
+     [:p ""]
+     [:a {:href "/leaker/list"} "Leakers"]
      ]))
