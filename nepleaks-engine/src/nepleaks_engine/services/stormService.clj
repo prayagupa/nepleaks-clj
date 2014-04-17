@@ -69,23 +69,18 @@
                    word-count
                    :p 6)}))
 
-(defn run-local! []
-  (let [cluster (LocalCluster.)]
-    (.submitTopology cluster "word-count" {TOPOLOGY-DEBUG true} (mk-topology))
+(defn runLocal! []
+  (let [cluster (LocalCluster.)]                                               ;;instantiate cluster
+    (.submitTopology cluster "word-count" {TOPOLOGY-DEBUG true} (mk-topology)) ;;call cluster.submitTopology
     (Thread/sleep 10000)   ;; 10 secs
     (.shutdown cluster)
     ))
 
 
-(defn submit-topology! [name]
+(defn submitWordTopology! [name]
   (StormSubmitter/submitTopology
    name
    {TOPOLOGY-DEBUG true
     TOPOLOGY-WORKERS 3} ;; 3 physical JVM processes
    (mk-topology)))
 
-(defn -main
-  ([]
-   (run-local!))
-  ([name]
-   (submit-topology! name)))
