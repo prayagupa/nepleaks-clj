@@ -1,18 +1,16 @@
 (ns nepleaks-engine.core
- (:use nepleaks-engine.services.stormService)
+ (:use nepleaks-engine.services.stormService
+       nepleaks-engine.util.utility)
  (:require [clojure.data.json :as json]))
 
-(defn helloStorm
-  "I don't do a whole lot."
-  [sourceName]
-  (println "Hello," sourceName))
 
 (defn getJson []
  (println str json/write-str {:name 1 :message 2}))
 
 ;;(defn -main []
-  ;;(helloStorm "Storm")
+  ;;(displaySourceStream "medical-engine")
   ;;(getJson)
+  ;;(hackMonad)
 ;;)
 
 (defn -main
