@@ -12,7 +12,7 @@
   ;;(displaySourceStream "medical-engine")
   ;;(getJson)
   ;;(hackMonad)
-  (connectToNeoleaks)
+  (bootstrapNeoleaks)
 )
 
 ;;(defn -main
