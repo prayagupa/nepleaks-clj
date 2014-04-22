@@ -15,6 +15,7 @@
 		             [cascalog "2.1.0"]
                  [org.clojure/data.json "0.2.4"]
                  [org.clojure/algo.monads "0.1.5"]
+                 [clojurewerkz/neocons "2.0.1"]
                 ]
    :aot [nepleaks-engine.services.leaksSplitterTridentClient
          nepleaks-engine.services.leaksSplitterTridentFunction]
