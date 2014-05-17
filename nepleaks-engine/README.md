@@ -8,7 +8,7 @@ backend repository
 lein run
 ````
 
-## [play with cascalog cli](http://cascalog.org/articles/getting_started.html)
+## 1. [play with cascalog cli](http://cascalog.org/articles/getting_started.html)
 
 ```
 prayagupd@prayagupd:~/backup/hacker_/nepleaks$ lein repl
@@ -82,6 +82,34 @@ and that government of the people by the people for the people shall not perish
 from the earth
 -----------------------
 user=> 
+
+```
+
+## 2. storm
+
+```
+./run-app.sh
+```
+
+realtime leaks count in storm
+------------------------------
+
+```
+core.clj     | stormService.clj
+             |
+             | ;;realtime input for 10000 ms
+             | (def runlocal
+runLocal     |  (.submitTopology cluster "leaks-count" {TOPOLOGY-DEBUG true} (mk-topology))
+             |                                                                  |
+             |            (defn mk-topology [] _________________________________|
+             |             (topology { "1" (spout-spec sentence-spout)
+             |                        "2" (spout-spec (sentence-spout-parameterized ["blah blah"]) : p 2)
+             |                      }
+             |                      { "3" (bolt-spec {"1" :shuffle "2" :shuffle} split-sentence :p 5)
+             |                        "4" (bolt-spec {"3" ["word"] word-count :p 6})
+             |                      })
+             |            )
+             |
 
 ```
 
