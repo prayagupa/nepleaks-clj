@@ -3,16 +3,16 @@
         [clojure.pprint])
   (:gen-class :main true)
   (:require
-            [pallet.api :refer [group-spec server-spec node-spec plan-fn converge lift]]
-            [pallet.compute :refer [nodes images]]
-            [clojure.pprint :refer [pprint]]
+            [pallet.api            :refer [group-spec server-spec node-spec plan-fn converge lift]]
+            [pallet.compute        :refer [nodes images]]
+            [clojure.pprint        :refer [pprint]]
             [pallet.compute.vmfest :refer [add-image]]
-            [pallet.node :refer [group-name primary-ip]]
-            [pallet.phase :as pphase]
-            [pallet.actions :as pact]
-            [clojure.java.io :as io]
+            [pallet.node           :refer [group-name primary-ip]]
+            [pallet.phase          :as pphase]
+            [pallet.actions        :as pact]
+            [clojure.java.io       :as io]
             [nepleaks-pallet.groups.nepleaksNodes :as pvm]
-            [clojure.java.shell :as csh]))
+            [clojure.java.shell                   :as csh]))
 
 
 ;; Simple example showing creatin of a compute service provider, via vmfest

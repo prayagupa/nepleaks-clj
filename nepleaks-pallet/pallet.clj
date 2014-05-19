@@ -1,12 +1,12 @@
 ;;; Pallet project configuration file
 
 (require
- '[pallet-java-example.groups.pallet-java-example :refer [pallet-java-example]])
+ '[nepleaks-pallet.groups.nepleaksNodes :refer [nepleaks-pallet]])
 
-(defproject pallet-java-example
+(defproject nepleaks-pallet
   :provider {:jclouds
              {:node-spec
               {:image {:os-family :ubuntu :os-version-matches "12.04"
                        :os-64-bit true}}}}
 
-  :groups [pallet-java-example])
+  :groups [nepleaks-pallet])

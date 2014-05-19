@@ -1,14 +1,14 @@
 (ns nepleaks-pallet.groups.nepleaksNodes
     "Node defintions for nepleaks-pallet"
     (:require
-            [pallet.compute :refer [instantiate-provider]]
-            [pallet.api :refer [group-spec server-spec node-spec plan-fn converge lift]]
-            [pallet.compute :refer [images nodes]]
-            [pallet.configure :refer [compute-service]]
-            [pallet.crate.java :as java]
+            [pallet.compute                    :refer [instantiate-provider]]
+            [pallet.api                        :refer [group-spec server-spec node-spec plan-fn converge lift]]
+            [pallet.compute                    :refer [images nodes]]
+            [pallet.configure                  :refer [compute-service]]
+            [pallet.crate.java                 :as java]
             [pallet.crate.automated-admin-user :refer [automated-admin-user]]
-            [pallet.actions :as pact]
-            [pallet.compute.vmfest :as vmf]))
+            [pallet.actions                    :as pact]
+            [pallet.compute.vmfest             :as vmf]))
 
 ;; A refer to hold the provider
 ;; There are several ways to configure providers, such as a local .pallet/config.clj file

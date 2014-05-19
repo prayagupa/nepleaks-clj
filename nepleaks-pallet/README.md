@@ -71,6 +71,13 @@ Then run it, the Pallet log statements should go to std out:
 
 Note `pallet-vmfest` uses `192.168.56.x` network by default.
 
+# References
+
+[Build your own PaaS with Pallet, Ubuntu, and Java](http://linkedjava.blogspot.com/2013/12/build-your-own-paas-with-pallet-ubuntu.html)
+
+[clojure-webdeplo-conj, cemerick](https://github.com/cemerick/clojure-web-deploy-conj/blob/master/src/ops/clojure/cemerick/webdeploy/ops.clj)
+
+[pallet-vmfest,  tbatchelli](https://gist.github.com/iPrayag/2697b202ff2ab2e50f26)
 ## License
 
 Distributed under the Eclipse Public License.
