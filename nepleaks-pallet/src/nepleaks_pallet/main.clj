@@ -24,9 +24,9 @@
     (when-not (contains? (images (:vmfest @pvm/provider)) :ubuntu-13.04-64bit)
       (println "Adding default ubuntu VM")
       (add-image (:vmfest @pvm/provider) "https://s3.amazonaws.com/vmfest-images/ubuntu-13.04-64bit.vdi.gz"))
-    (println "Spinning up example-group virtual machine")
+    (println "[info] : Spinning up example-group virtual machine")
     (converge {pvm/example-group 1} :compute (:vmfest @pvm/provider))
-    (println "Completed VM creation")
+    (println "[info] : Completed VM creation")
     (println (nodes (:vmfest @pvm/provider)))
     (System/exit 0)))
 

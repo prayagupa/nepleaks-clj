@@ -1,12 +1,12 @@
 # nepleaks-pallet
 
-A pallet project to illustrate the basics of configuring VMFest, using Pallet specs, and installing a Java crate.
+A pallet project to illustrate the basics of configuring [VMFest](https://github.com/pallet/pallet-vmfest), using [Pallet specs](https://github.com/pallet/pallet), and installing a [java crate](https://github.com/pallet/java-crate#server-spec).
 
-This project uses [Pallet-Vmfest](https://github.com/pallet/pallet-vmfest) as the Pallet computeService, i.e. the IaaS cloud provider.  
+This project uses [pallet-vmfest](https://github.com/pallet/pallet-vmfest) as the Pallet computeService, i.e. the IaaS cloud provider.  
 By default, it uses the `automated-admin-user`.
 
 
-See the [Pallet First Steps](http://palletops.com/doc/first-steps/) for more information on the authentication configuration.
+See the [pallet First Steps](http://palletops.com/doc/first-steps/) for more information on the authentication configuration.
 
 ## Getting started
 
@@ -15,24 +15,24 @@ STEP 1
 
 Follow the instructions for `pallet-vmfest` and make sure you have `~/.vmfest/models/ubuntu...` configured.
 
-```pallet-vmfest``` can always use web services to speak with `VirtualBox`, no matter the OS.
+```pallet-vmfest``` can always use webServices to speak with `VirtualBox`, no matter the OS.
 
-1. Turn off auth (only needs to be done once)
-  ```bash
-  $ VBoxManage setproperty websrvauthlibrary null
-  ```
+```bash
+# 1. Turn off auth (only needs to be done once)
+VBoxManage setproperty websrvauthlibrary null
 
-2. Start VirtualBox listening
-  ```shell
-  $ vboxwebsrv -t0
-  ```
 
-Once these two are setup, the project is already configured to use the VBox Web Services.
+# 2. Start VirtualBox listening
+vboxwebsrv -t0
+
+```
+
+Once these two are setup, the project is already configured to use the VBox WebServices.
 
 STEP 2
 ----------------
 
-The uberjar will attempt to download it, but more information can be found.
+The `uberjar` will attempt to download it, but more information can be found.
 
 Create the uberjar:
 
@@ -78,6 +78,12 @@ Note `pallet-vmfest` uses `192.168.56.x` network by default.
 [clojure-webdeplo-conj, cemerick](https://github.com/cemerick/clojure-web-deploy-conj/blob/master/src/ops/clojure/cemerick/webdeploy/ops.clj)
 
 [pallet-vmfest,  tbatchelli](https://gist.github.com/iPrayag/2697b202ff2ab2e50f26)
+
+[pallet-riak](https://github.com/bmaddy/pallet-riak-example/blob/master/src/prov/riak.clj)
+
+[manipulate image of the vdi on repl](https://github.com/manboubird/vmfest-trial)
+
+
 ## License
 
 Distributed under the Eclipse Public License.
