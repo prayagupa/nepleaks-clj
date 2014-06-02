@@ -7,7 +7,12 @@ runApp(){
 
   echo "[info] : storm separately needs not to start."
   #TODO ask options to start neo (y,n)
-  processId=$(ps -ef | grep neo4j);
+  processId=$(pgrep neo4j);
+
+  echo "#################################"
+  echo $processId;
+  echo "#################################"
+
   if [ "$processId" ];
   then
         echo "#############################################"
