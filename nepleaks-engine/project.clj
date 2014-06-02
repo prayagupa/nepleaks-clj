@@ -20,6 +20,7 @@
                  [org.apache.httpcomponents/httpclient "4.3.3"]
                  [org.apache.httpcomponents/httpmime "4.3.3"]
                  [clojurewerkz/neocons "2.0.1"]
+                 [clj-yaml "0.4.0"]
                 ]
    :aot [nepleaks-engine.services.leaksSplitterTridentClient
          nepleaks-engine.services.leaksSplitterTridentFunction]

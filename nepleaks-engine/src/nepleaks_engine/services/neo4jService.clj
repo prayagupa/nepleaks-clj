@@ -7,12 +7,26 @@
   (:require [clojurewerkz.neocons.rest               :as nr]
             [clojurewerkz.neocons.rest.nodes         :as nn]
             [clojurewerkz.neocons.rest.relationships :as nrl]
-            [clojurewerkz.neocons.rest.cypher        :as cy]))
+            [clojurewerkz.neocons.rest.cypher        :as cy])
+
+  (:use     [clj-yaml.core])
+  )
+
+;; load config-yml
+(defn load-config []
+  (try 
+     (parse-string (slurp "./resources/nepleaks.yml"))
+  (catch Exception e ((throw (new Exception "Invalid yml")))))
+)
+   
+(defn development []
+ (let [dev-map (load-config)] 
+      (dev-map :development)))
 
 ;; connects to the default Neo4J Server host/port/path
 (defn connectToNeoleaks []
   (println "connecting to neo4j leakers")
-  (nr/connect! "http://localhost:7474/db/data/"))
+  (nr/connect! (:neo4j-url (development))))
 
 (comment
 (defn insertNodes []
@@ -41,5 +55,6 @@
 ;;@see : http://clojureneo4j.info/articles/populating.html
 ;;
 (defn bootstrapNeoleaks []
+  (println (:neo4j-url (development)))
   (connectToNeoleaks)
   (insertNodesWithRelation))
