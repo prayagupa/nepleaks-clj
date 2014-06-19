@@ -1,5 +1,7 @@
-lein clean
-lein deps
+clean(){
+ lein clean
+ lein deps
+}
 
 runApp(){	
   #echo("[info] : make sure you've started neo4j.")
@@ -30,4 +32,29 @@ runApp(){
   #lein run -m nepleaks-engine.services.leaksSplitterTridentClient
 }
 
-runApp
+test(){
+  lein test
+}
+
+case "$2" in 	
+	development)
+             case "$1" in
+                clean) 
+                     clean
+                     ;;
+                runApp)
+                    runApp
+                    ;;
+                test)
+                    test
+                    ;;
+                *)
+                    echo "Usage: $0 {clean|runApp|test}"
+                    exit 1
+                    ;;
+            esac
+       #*)
+       #   echo "Usage $0 {clean|runApp|test} {dev}"
+       #  exit 2
+       #  ;;
+esac 

@@ -14,12 +14,15 @@
 		 [clojurewerkz/elastisch "1.4.0"]
 		 [clj-http "0.7.8"]
 		 [cascalog "2.0.0"]
+
+                 [junit/junit "4.11"]
                  [solrclj/solrclj "0.1.2"]
                  [clojure-opennlp "0.3.2"] ;; uses Opennlp 1.5.3
                  [facts/speech-synthesis "1.0.0"]
                  ;;[overtone "0.9.1"]
 		 [google-maps "0.5.0"]
      [com.keminglabs/c2 "0.2.3"]
+                 [ring/ring-json "0.1.2"]
                 ]
   :plugins [[lein-ring "0.8.10"]]
   :ring {:handler nepleaks.handler/app

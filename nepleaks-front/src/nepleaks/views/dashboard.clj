@@ -6,7 +6,7 @@
 (ns nepleaks.views.dashboard
 	(:use [hiccup core page]
 	      [clj-http.client :as client]
-              [nepleaks.services.esService     :as esService]
+              ;;[nepleaks-engine.services.esService     :as esService]
               [nepleaks.services.nlpService    :as nlpService]
               ))
 
@@ -17,9 +17,10 @@
 
 (defn getJsonResponse []
   (println "getJsonResponse") ;;FIXME replace it with logger
-  ;;(println apply str (esService/getEsMapping))
-  ;;(nlpService/speak "I'm Prayag")
-  ;;(nlpService/tag-page "http://writequit.org")
+  ;; TODO call from nepleaks-engine
+  ;; (println apply str (esService/requestJsonServer))
+  ;; (nlpService/speak "I'm Prayag")
+  ;; (nlpService/tag-page "http://writequit.org")
   (str "<a>prayagupd</a>") ;;return
 )
 

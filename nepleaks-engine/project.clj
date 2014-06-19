@@ -6,6 +6,7 @@
   :repositories {"conjars" "http://conjars.org/repo"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [congomongo "0.4.3"]
+		 [clojurewerkz/elastisch "1.4.0"]
                  [storm "0.9.0"] 
                  [storm/storm-kafka "0.9.0-wip15b-scala292"]
                  [org.clojure/tools.logging "0.2.6"]
