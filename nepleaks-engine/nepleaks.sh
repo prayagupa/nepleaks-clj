@@ -53,8 +53,9 @@ case "$2" in
                     exit 1
                     ;;
             esac
-       #*)
-       #   echo "Usage $0 {clean|runApp|test} {dev}"
-       #  exit 2
-       #  ;;
+	    ;;
+       *)
+          echo "Usage $0 {clean|runApp|test} {dev}"
+          exit 2
+          ;;
 esac 

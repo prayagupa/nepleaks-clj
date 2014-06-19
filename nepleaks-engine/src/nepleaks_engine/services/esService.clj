@@ -1,5 +1,5 @@
 ;;
-;; leaksService
+;; leaksEsService
 ;;
 
 (ns nepleaks-engine.services.esService
@@ -11,13 +11,12 @@
             [clojure.pprint                       :as pp]
             [clojure.tools.logging                :as log]))
 
+(def es-server {:hostname "http://10.0.4.71:9200/"
+                :index    "gccount"})
 
-;; TODO move it to yaml or hashmap
-(def ES_SERVER "http://10.0.4.71:9200/")
-(def ES_INDEX "QA_1000")
 ;;(defmacro ES_TYPE_MEMBER [] "Member")
 (def ES_TYPE_MEMBER "MemberSearch")
-(def ES_MAPPING_URL (str ES_SERVER ES_INDEX "/" ES_TYPE_MEMBER "/_mapping?pretty=true"))
+(def ES_MAPPING_URL (str (get es-server :hostname) (get es-server :index) "/" ES_TYPE_MEMBER "/_mapping?pretty=true"))
 
 
 (def selected "http://localhost:8443/DasTest/selectedProcedure?clientId=2000&reportingBasis=ServiceDate&reportingTo=2014-01-31&reportingFrom=2013-02-01&comparisonFrom=2012-02-01&comparisonTo=2013-01-31&report=selectedProcedure:default&eligibilityType=[medical]&reportingPaidThrough=2014-01-31&comparisonPaidThrough=2013-01-31&phiCSDate=09-01-2010&phiCEDate=01-31-2014")
@@ -35,7 +34,7 @@
    (client/get ES_MAPPING_URL {:accept :json}))
 
 (defn getEsJson []
-  (esr/connect! ES_SERVER)
+  (esr/connect! (get es-server :hostname))
 
   ;; fetch a single document by a known id
   ;; (esd/get ES_INDEX ES_TYPE_MEMBER "g:0xad8c81f57a9c06b293a87d54cb458126")
@@ -44,7 +43,7 @@
 
   (log/info "Preparing to query the Es Server.")
   
-  (let [res (esd/search ES_INDEX  ES_TYPE_MEMBER :query {:term {:currentStatus "Termed"}})
+  (let [res (esd/search (get es-server :index)  ES_TYPE_MEMBER :query {:term {:currentStatus "Termed"}})
         numberOfHits (esrsp/total-hits res)
         hits         (esrsp/hits-from res)]
     (println (format "Total document hits: %d" numberOfHits))
