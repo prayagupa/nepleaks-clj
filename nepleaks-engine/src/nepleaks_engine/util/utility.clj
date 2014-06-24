@@ -2,7 +2,11 @@
 ;; http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/
 ;;
 
-(ns nepleaks-engine.util.utility)
+(ns nepleaks-engine.util.utility
+  (:import [java.util Locale Date]
+           [org.joda.time DateTimeZone]
+           [org.joda.time.format DateTimeFormat DateTimeFormatter]
+           [org.joda.time.tz FixedDateTimeZone]))
 
 (defn displaySourceStream
   "I don't do a whole lot."
@@ -17,12 +21,20 @@
 ;;http://stackoverflow.com/q/10801744/432903
 (def array [4 5 6])
 
+(defn nohup-config [service-name] 
+  {:service-name service-name
+   :run-file {
+    :content (str "#!/bin/sh\nexec " service-name)
+  }})
+
 ;; http://stackoverflow.com/questions/6685916/how-to-iterate-over-map-keys-and-values
 (def dbMap {:classname "com.mysql.jdbc.Driver" 
             :subprotocol "mysql" 
             :subname "//10.0.7.40:3306/neleaks" 
             :username "root" 
             :password "mysql55"})
+(defn dbMapX []
+  (let []))
 
 (defn printDbMap []
   (doseq [keyVal dbMap] (prn keyVal)))
@@ -32,8 +44,7 @@
 (def book {:name "SICP" 
            :details {:pages 657 
                      :isbn-10 "0262011530"
-                    }
-          })
+                    }})
 
 (defn printBook []
 (let [{name :name 
@@ -48,36 +59,48 @@
        (println bucketname))
   ) (cond (= "production" "production")
           (let [bucketname "cdn"]
-            (println bucketname)))
-  )
+            (println bucketname))))
 
 ;(defn equality-iflet []
 ;   (if-let [(= "staging" (str "stag" "ing"))]
 ;       ("staging-cdn")
-;       ("cdn")
-;  ))
+;       ("cdn")))
 
 ;;(defn equality-letif []
 ;;   (let [bucketname
 ;     (if (= "staging" "staging")
 ;       ("staging-cdn"))
 ;     (cond (= "production" "production_")
-;       ("cdn"))]
-;  )
-;)
+;       ("cdn"))]))
 
 (def buckets {:production "cdn" 
               :staging "staging-cdn"})
 
+(defn aws-time []
+  (let [aws-date-value (java.util.Date.)]
+  (println aws-date-value)))
+
+(defn awsdate []
+    (let [GMT              (new FixedDateTimeZone "GMT" "GMT" 0 0)
+          rfc822           (. DateTimeFormat forPattern "EEE, dd MMM yyyy HH:mm:ss z")
+          locale           (. Locale US)
+          rfcL             (. rfc822 withLocale locale)
+          rfcT             (. rfcL withZone GMT)
+          date             (Date.)
+          datetime         (. date getTime)
+          finalDate        (. rfcT print datetime)]
+    (str finalDate)))
+
 (defn get-bucket [env]
   (let [
        bucketname (buckets (keyword env))]
-       (println bucketname)
-    ))
+       (println bucketname)))
 
 (defn util []
   ;; (displaySourceStream "leaks-engine")
   ;; (printBook)
-  (get-bucket "staging")
+  ;;(get-bucket "staging")
   ;; (hackMonad)
-  )
+  (doseq [keyval (nohup-config "nimbus")] (prn keyval))
+  (let [date (awsdate)]
+    (println date)))
