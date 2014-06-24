@@ -1,12 +1,13 @@
 ;;
 ;; http://onclojure.com/2009/03/05/a-monad-tutorial-for-clojure-programmers-part-1/
 ;;
-
 (ns nepleaks-engine.util.utility
   (:import [java.util Locale Date]
            [org.joda.time DateTimeZone]
            [org.joda.time.format DateTimeFormat DateTimeFormatter]
-           [org.joda.time.tz FixedDateTimeZone]))
+           [org.joda.time.tz FixedDateTimeZone])
+   (:use
+           [clojure.tools.logging :as log]))
 
 (defn displaySourceStream
   "I don't do a whole lot."
@@ -95,6 +96,15 @@
   (let [
        bucketname (buckets (keyword env))]
        (println bucketname)))
+
+;; TODO move it to utils
+;; division function with Exception handling ;;
+(defn divide [x y]
+  (try
+    (log/info "dividing" x "by" y)
+    (/ x y)
+    (catch Exception ex
+      (log/error ex "There was an error in calculation."))))
 
 (defn util []
   ;; (displaySourceStream "leaks-engine")
