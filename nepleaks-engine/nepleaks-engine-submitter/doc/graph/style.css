@@ -1,0 +1,31 @@
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+.node {
+    stroke: #888;
+    stroke-width: 1px;
+}
+
+text.textNode {
+    font-family: 'Anonymous Pro', sans-serif;
+    font-size: 5px;
+    fill: #fff;
+}
+
+.link, #arrow {
+    stroke: #888;
+    fill: #888;
+}
+
+body {
+    background-color: #333;
+}
+
+.overlay {
+    fill: #333;
+}
+
+svg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
