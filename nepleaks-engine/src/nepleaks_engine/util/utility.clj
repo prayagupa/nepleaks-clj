@@ -25,8 +25,7 @@
 (defn nohup-config [service-name] 
   {:service-name service-name
    :run-file {
-    :content (str "#!/bin/sh\nexec " service-name)
-  }})
+    :content (str "#!/bin/sh\nexec " service-name) }})
 
 ;; http://stackoverflow.com/questions/6685916/how-to-iterate-over-map-keys-and-values
 (def dbMap {:classname "com.mysql.jdbc.Driver" 
@@ -44,8 +43,7 @@
 ;; http://blog.jayfields.com/2010/07/clojure-destructuring.html
 (def book {:name "SICP" 
            :details {:pages 657 
-                     :isbn-10 "0262011530"
-                    }})
+                     :isbn-10 "0262011530" }})
 
 (defn printBook []
 (let [{name :name 
@@ -106,6 +104,15 @@
     (catch Exception ex
       (log/error ex "There was an error in calculation."))))
 
+(defn operation-test [cluster]
+  (if (or (= "staging-cdn" (str (buckets (keyword cluster)))) (= "cdn" (str (buckets (keyword cluster)))))
+       ;;(println (str "#####" cluster "#####"))
+       (str cluster " passed")))
+
+(defn string-hacks []
+  (println (str  "sed -i '/setCollectorUrl/c\\soothsayer.push(['setCollectorUrl', " "'"  "trackerUrl" "']);' " "asyncSourcefile")))
+
+
 (defn util []
   ;; (displaySourceStream "leaks-engine")
   ;; (printBook)
@@ -113,4 +120,6 @@
   ;; (hackMonad)
   (doseq [keyval (nohup-config "nimbus")] (prn keyval))
   (let [date (awsdate)]
-    (println date)))
+    ;;(println (operation-test "staging"))
+    ;;(println (operation-test "local"))
+    ((string-hacks))))
