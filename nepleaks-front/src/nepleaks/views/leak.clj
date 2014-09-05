@@ -6,7 +6,7 @@
 (ns nepleaks.views.leak
 	(:use [hiccup core page]
 	      [clj-http.client :as client]
-              [nepleaks.services.esService     :as esService]
+              ;;[nepleaks-engine.services.esService     :as esService]
               [nepleaks.services.nlpService    :as nlpService]
               ))
 
