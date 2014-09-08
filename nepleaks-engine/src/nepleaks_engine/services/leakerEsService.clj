@@ -14,8 +14,8 @@
 
 
 (def ES_SERVER "http://localhost:9200/") ;;CHANGEME
-(def ES_INDEX "gccount")                 ;;CHANGEME
-(def ES_TYPE_MEMBER "Leaker")            ;;CHANGEME
+(def ES_INDEX "3056")                 ;;CHANGEME
+(def ES_TYPE_MEMBER "Billing")            ;;CHANGEME
 (def ES_MAPPING_URL (str ES_SERVER ES_INDEX "/" ES_TYPE_MEMBER "/_mapping?pretty=true"))
 
 (defn leakers []

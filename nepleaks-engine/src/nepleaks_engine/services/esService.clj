@@ -9,19 +9,20 @@
             [clojurewerkz.elastisch.rest.response :as esrsp]
             [clj-http.client                      :as client]
             [clojure.pprint                       :as pp]
+            [nepleaks-engine.conf.config          :as conf] 
             [clojure.tools.logging                :as log]))
 
-(def es-server {:hostname "http://10.0.4.71:9200/"
-                :index    "gccount"})
+(def es-server {:hostname "http://localhost:9200/"
+                :index    "3056"})
 
 ;;(defmacro ES_TYPE_MEMBER [] "Member")
-(def ES_TYPE_MEMBER "MemberSearch")
+(def ES_TYPE_MEMBER "Billing")
 (def ES_MAPPING_URL (str (get es-server :hostname) (get es-server :index) "/" ES_TYPE_MEMBER "/_mapping?pretty=true"))
 
 
 (def selected "http://localhost:8443/DasTest/selectedProcedure?clientId=2000&reportingBasis=ServiceDate&reportingTo=2014-01-31&reportingFrom=2013-02-01&comparisonFrom=2012-02-01&comparisonTo=2013-01-31&report=selectedProcedure:default&eligibilityType=[medical]&reportingPaidThrough=2014-01-31&comparisonPaidThrough=2013-01-31&phiCSDate=09-01-2010&phiCEDate=01-31-2014")
 
-(def requestUrl "http://localhost:8443/DasTest/provider?clientId=2000&reportingFrom=04-01-2013&reportingTo=03-31-2014&phiCSDate=11-01-2010&phiCEDate=03-31-2014&report=grs:group")
+(def requestUrl (str (:webservice-url (conf/development)) "enterprises?clientId=2000&reportingFrom=04-01-2013&reportingTo=03-31-2014&phiCSDate=11-01-2010&phiCEDate=03-31-2014&report=denial:trend"))
 
 (def selectedUrl "http://localhost:8443/DasTest/selectedProcedure?clientId=1000&reportingFrom=2012-12-01&reportingTo=2013-11-30&reportingPaidThrough=2013-11-30&comparisonFrom=2011-12-01&comparisonTo=2012-11-30&comparisonPaidThrough=2012-11-30&report=selectedProcedure:default&reportingBasis=ServiceDate&isParticipation=y&program_type={'Wellness':['Activity Tracker']}")
 
