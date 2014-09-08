@@ -8,7 +8,7 @@
 	nepleaks.views.leak
 	nepleaks.views.dashboard
   nepleaks.templates
-  [nepleaks.services.leakerService :as nepleaksService]
+  [nepleaks-engine.services.leakerEsService :as nepleaksService]
         [hiccup.middleware :only (wrap-base-url)])
   (:require [compojure.handler     :as handler]
             [compojure.route       :as route]
