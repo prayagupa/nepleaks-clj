@@ -8,10 +8,6 @@
                  [congomongo "0.4.3"]
 		 [clojurewerkz/elastisch "1.4.0"]
                  [org.clojure/tools.logging "0.2.6"]
-                 [clj-kafka "0.2.0-0.8"]
-                 [cascading/cascading-core "2.5.3"
-                  :exclusions [javax.mail/mail janino/janino]]
-		             [cascalog "2.1.0"]
                  [org.clojure/data.json "0.2.4"]
                  [org.clojure/algo.monads "0.1.5"]
                  ;;;
@@ -20,8 +16,6 @@
                  [org.apache.httpcomponents/httpmime "4.3.3"]
                  [clojurewerkz/neocons "2.0.1"]
                  [clj-yaml "0.4.0"]]
-   :aot [nepleaks-engine.services.leaksSplitterTridentClient
-         nepleaks-engine.services.leaksSplitterTridentFunction]
   :profiles { :dev {:dependencies [
                      [org.apache.hadoop/hadoop-core "1.2.1"]]}}
   ;;:main nepleaks-engine.services.stormService

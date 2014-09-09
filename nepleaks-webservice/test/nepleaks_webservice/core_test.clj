@@ -1,6 +1,6 @@
-(ns nepleaks-engine.core-test
+(ns nepleaks-webservice.core-test
   (:require [clojure.test :refer :all]
-            [nepleaks-engine.core :refer :all]))
+            [nepleaks-webservice.controller :refer :all]))
 
 (deftest a-test
   (testing "Don't FIXME, I pass."

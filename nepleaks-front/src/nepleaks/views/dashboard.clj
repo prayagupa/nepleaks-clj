@@ -6,7 +6,7 @@
 (ns nepleaks.views.dashboard
 	(:use [hiccup core page]
 	      [clj-http.client :as client]
-              [nepleaks-engine.services.esService     :as esService]
+              [nepleaks-webservice.services.esService     :as esService]
               [nepleaks.services.nlpService    :as nlpService]
               ))
 
