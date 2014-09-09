@@ -15,8 +15,6 @@
                  [org.apache.httpcomponents/httpclient "4.3.3"]
                  [org.apache.httpcomponents/httpmime "4.3.3"]
                  [clojurewerkz/neocons "2.0.1"]
+                 [clj-time "0.8.0"]
                  [clj-yaml "0.4.0"]]
-  :profiles { :dev {:dependencies [
-                     [org.apache.hadoop/hadoop-core "1.2.1"]]}}
-  ;;:main nepleaks-engine.services.stormService
  )

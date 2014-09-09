@@ -23,9 +23,9 @@
 		 [google-maps "0.5.0"]
      [com.keminglabs/c2 "0.2.3"]
                  [ring/ring-json "0.1.2"]
-                 [nepleaks-engine "0.1.0-SNAPSHOT"]
+                 ;;[nepleaks-webservice "0.1.0-SNAPSHOT"]
                 ]
-  ;;:sub  ["../nepleaks-engine"]
+  ;;:sub  ["../nepleaks-webservice"]
 
   :plugins [
             [lein-ring "0.8.10"]
@@ -39,7 +39,6 @@
   :profiles { :dev {:dependencies [[ring-mock "0.1.2"]
                      [org.apache.hadoop/hadoop-core "1.1.2"]
 		     [ritz/ritz-swank "0.7.0"]
-                     ;;[storm "0.9.0"]
                     ]
 		   }
 	    }
