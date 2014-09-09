@@ -1,6 +1,7 @@
 (ns nepleaks-engine.core
  (:use nepleaks-engine.services.stormService
        nepleaks-engine.services.neo4jService
+       nepleaks-engine.services.esService
        nepleaks-engine.util.utility)
  (:require [clojure.data.json :as json]))
 
@@ -12,7 +13,8 @@
   ;;(displaySourceStream "medical-engine")
   ;;(getJson)
   ;;(hackMonad)
-  (bootstrapNeoleaks)
+  (requestJsonServer)
+  ;;(bootstrapNeoleaks)
 )
 
 ;;(defn -main

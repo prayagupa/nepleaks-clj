@@ -23,7 +23,7 @@
 		 [google-maps "0.5.0"]
      [com.keminglabs/c2 "0.2.3"]
                  [ring/ring-json "0.1.2"]
-                 ;;[nepleaks-engine "0.1.0-SNAPSHOT"]
+                 [nepleaks-engine "0.1.0-SNAPSHOT"]
                 ]
   ;;:sub  ["../nepleaks-engine"]
 

@@ -28,8 +28,8 @@
 
 
 (defn requestJsonServer []
-   (let [response (client/post requestUrl {:accept :json})]
-	(println response)))
+   ;;(let [response (client/post requestUrl {:accept :json})]
+	(println (str "request : " requestUrl)));;)
 
 (defn getEsMapping []
    (client/get ES_MAPPING_URL {:accept :json}))
