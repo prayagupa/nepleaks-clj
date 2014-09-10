@@ -1,4 +1,4 @@
-(ns nepleaks-webservice.core-test
+(ns nepleaks-webservice.controller-test
   (:require [clojure.test :refer :all]
             [nepleaks-webservice.controller :refer :all]))
 
