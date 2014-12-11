@@ -68,11 +68,18 @@
   (let [ bucketname (buckets-map (keyword env))]
         (println bucketname)))
 
+(defn operation-test [cluster]
+  (if (or (= "staging-cdn" (str (buckets-map (keyword cluster)))) (= "cdn" (str (buckets-map (keyword cluster)))))
+       ;;(println (str "#####" cluster "#####"))
+       (str cluster " passed")))
+
 ;;main-entry
 (defn entry []
   ;; (printBook)
   ;; (get-bucket "staging")
     (let [first-elem (get-nth-elem 1)]
       (println first-elem))
+  ;;(println (operation-test "staging"))
+  ;;(println (operation-test "local"))
   ;;(doseq [keyval (nohup-config "nimbus")] (prn keyval))
   )
