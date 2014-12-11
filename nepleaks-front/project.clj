@@ -24,7 +24,11 @@
      [com.keminglabs/c2 "0.2.3"]
                  [ring/ring-json "0.1.2"]
                 ]
-  :plugins [[lein-ring "0.8.10"]]
+  :sub  ["../nepleaks-engine"]
+
+  :plugins [
+            [lein-ring "0.8.10"]
+            [lein-sub "0.3.0"]]
   :ring {:handler nepleaks.handler/app
          ;; hot-reload http://stackoverflow.com/a/14472281/432903
          ;;:auto-reload? true
