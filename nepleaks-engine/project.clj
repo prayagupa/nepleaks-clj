@@ -6,7 +6,7 @@
   :repositories {"conjars" "http://conjars.org/repo"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [congomongo "0.4.3"]
-		 [clojurewerkz/elastisch "1.4.0"]
+		 [clojurewerkz/elastisch "2.0.0"]
                  [storm "0.9.0"] 
                  [storm/storm-kafka "0.9.0-wip15b-scala292"]
                  [org.clojure/tools.logging "0.2.6"]
@@ -16,12 +16,14 @@
 		             [cascalog "2.1.0"]
                  [org.clojure/data.json "0.2.4"]
                  [org.clojure/algo.monads "0.1.5"]
-                 ;;;
+                 [joda-time/joda-time "2.3"]
                  [org.apache.httpcomponents/httpcore "4.3.2"]
                  [org.apache.httpcomponents/httpclient "4.3.3"]
                  [org.apache.httpcomponents/httpmime "4.3.3"]
                  [clojurewerkz/neocons "2.0.1"]
                  [clj-yaml "0.4.0"]
+                 [com.palletops/pallet "0.8.0-RC.9"]
+                 ;;[clj-time "0.7.0"]
                 ]
    :aot [nepleaks-engine.services.leaksSplitterTridentClient
          nepleaks-engine.services.leaksSplitterTridentFunction]

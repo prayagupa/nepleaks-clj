@@ -1,8 +1,8 @@
 ;;
 ;; leaksEsService
 ;;
-
 (ns nepleaks-webservice.services.esService
+(ns nepleaks-engine.services.esService
   (:require [clojurewerkz.elastisch.rest          :as esr]
             [clojurewerkz.elastisch.rest.document :as esd]
             [clojurewerkz.elastisch.query         :as q]
@@ -19,8 +19,8 @@
 (def ES_TYPE_MEMBER "Billing")
 (def ES_MAPPING_URL (str (get es-server :hostname) (get es-server :index) "/" ES_TYPE_MEMBER "/_mapping?pretty=true"))
 
-
-(def selected "http://localhost:8443/DasTest/selectedProcedure?clientId=2000&reportingBasis=ServiceDate&reportingTo=2014-01-31&reportingFrom=2013-02-01&comparisonFrom=2012-02-01&comparisonTo=2013-01-31&report=selectedProcedure:default&eligibilityType=[medical]&reportingPaidThrough=2014-01-31&comparisonPaidThrough=2013-01-31&phiCSDate=09-01-2010&phiCEDate=01-31-2014")
+(def urlsMap
+  {:selected "http://localhost:8443/DasTest/selectedProcedure?clientId=2000&reportingBasis=ServiceDate&reportingTo=2014-01-31&reportingFrom=2013-02-01&comparisonFrom=2012-02-01&comparisonTo=2013-01-31&report=selectedProcedure:default&eligibilityType=[medical]&reportingPaidThrough=2014-01-31&comparisonPaidThrough=2013-01-31&phiCSDate=09-01-2010&phiCEDate=01-31-2014"
 
 (def requestUrl (str (:webservice-url (conf/development)) "enterprises?clientId=2000&reportingFrom=04-01-2013&reportingTo=03-31-2014&phiCSDate=11-01-2010&phiCEDate=03-31-2014&report=denial:trend"))
 
@@ -35,7 +35,7 @@
    (client/get ES_MAPPING_URL {:accept :json}))
 
 (defn getEsJson []
-  (esr/connect! (get es-server :hostname))
+  (esr/connect! (get (conf/es-server) :hostname))
 
   ;; fetch a single document by a known id
   ;; (esd/get ES_INDEX ES_TYPE_MEMBER "g:0xad8c81f57a9c06b293a87d54cb458126")
@@ -52,12 +52,3 @@
     ;; display the hit documents
     ;; (pp/pprint hits)
   ))
-
-;; TODO move it to utils
-;; division function with Exception handling ;;
-(defn divide [x y]
-  (try
-    (log/info "dividing" x "by" y)
-    (/ x y)
-    (catch Exception ex
-      (log/error ex "There was an error in calculation."))))

@@ -42,5 +42,7 @@
 ;;@see : http://clojureneo4j.info/articles/populating.html
 ;;
 (defn bootstrapNeoleaks []
-  (connectToNeoleaks)
-  (insertNodesWithRelation))
+ (try
+   (connectToNeoleaks)
+   (insertNodesWithRelation)
+  (catch Exception e (prn "[error] : " (.getMessage e)))))
