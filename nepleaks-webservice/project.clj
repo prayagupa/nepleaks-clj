@@ -16,5 +16,6 @@
                  [org.apache.httpcomponents/httpmime "4.3.3"]
                  [clojurewerkz/neocons "2.0.1"]
                  [clj-time "0.8.0"]
+                 [me.raynes/conch "0.8.0"]
                  [clj-yaml "0.4.0"]]
  )
