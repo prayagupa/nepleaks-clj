@@ -1,9 +1,9 @@
+
 (ns nepleaks-engine.util.collection-util
   (:import [java.util Locale Date]
            [org.joda.time DateTimeZone]
            [org.joda.time.format DateTimeFormat DateTimeFormatter]
            [org.joda.time.tz FixedDateTimeZone]))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -14,12 +14,17 @@
 (def clothes-votes-vector [1 2 3 4 5 6])
 
 ;;http://clojure-doc.org/articles/language/collections_and_sequences.html
+(def clothes-vector ["Jacket" "Pants" "Gauge" "Hat" "Shirts" "Shoes"])
 (def clothes-set #{"Jacket" "Pants" "Gauge" "Hat" "Shirts" "Shoes"})
 
 (defn get-nth-elem [elem]
   (println (str "Getting element of a vector, same for 'list/#set"))
   (some #{elem} [1 2 3 4]))
 
+(defn process-clothes-vector [clothes-vector]
+  (let [buy-clothes (map #(str "Buy " % " ASAP. " ) ["Jacket" "Pants" "Hat"])
+        buy-clothes-str (apply str buy-clothes)]
+       (println (str "Processed clothes for buying : " buy-clothes-str))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;; map ;;;;;;;;;;;;;;
@@ -74,11 +79,12 @@
        (str cluster " passed")))
 
 ;;main-entry
-(defn entry []
+(defn collection-entry []
   ;; (printBook)
   ;; (get-bucket "staging")
-    (let [first-elem (get-nth-elem 1)]
+  (let [first-elem (get-nth-elem 1)]
       (println first-elem))
+  (process-clothes-vector clothes-vector)
   ;;(println (operation-test "staging"))
   ;;(println (operation-test "local"))
   ;;(doseq [keyval (nohup-config "nimbus")] (prn keyval))

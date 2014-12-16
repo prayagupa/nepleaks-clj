@@ -20,7 +20,7 @@
   ;;(displaySourceStream "medical-engine")
   ;;(getJson)
   ;;(hackMonad)
-  ;;(bootstrapNeoleaks)
+  (collection-entry)
   (println (get-nth-elem-map :production))
   (println (get-nth-elem 2))
   (println "================================")
