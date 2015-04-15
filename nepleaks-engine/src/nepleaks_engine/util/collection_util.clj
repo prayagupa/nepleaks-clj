@@ -3,7 +3,8 @@
   (:import [java.util Locale Date]
            [org.joda.time DateTimeZone]
            [org.joda.time.format DateTimeFormat DateTimeFormatter]
-           [org.joda.time.tz FixedDateTimeZone]))
+           [org.joda.time.tz FixedDateTimeZone])
+  (:use     [clj-yaml.core :as yaml] ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -78,6 +79,10 @@
        ;;(println (str "#####" cluster "#####"))
        (str cluster " passed")))
 
+(defn generate-yaml []
+   (let [config-yaml (yaml/generate-string buckets-map)]
+     (println config-yaml)))
+
 ;;main-entry
 (defn collection-entry []
   ;; (printBook)
@@ -88,4 +93,5 @@
   ;;(println (operation-test "staging"))
   ;;(println (operation-test "local"))
   ;;(doseq [keyval (nohup-config "nimbus")] (prn keyval))
+  (generate-yaml)
   )
